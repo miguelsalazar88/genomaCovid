@@ -94,7 +94,6 @@ public class Modelo {
             else
             {
                 lista.get(combinacionC).setVeces(lista.get(combinacionC).getVeces()+1);
-                //lista.replace(combinacionC,c);
             }
             combinacionC="";
             inicio+=posiciones;
