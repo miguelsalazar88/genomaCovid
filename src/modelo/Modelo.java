@@ -17,7 +17,7 @@ public class Modelo {
 
     public String leerDoc(){
 
-        Path path = Paths.get("/Users/miguelsalazar/git/genomaCovid/src/docs/sequences.fasta");
+        Path path = Paths.get("src/docs/sequences.fasta");
         StringBuilder sb = new StringBuilder();
 
         try{
