@@ -98,8 +98,6 @@ public class Modelo {
             combinacionC="";
             inicio+=posiciones;
         }
-
         return lista;
     }
-
 }
