@@ -2,6 +2,7 @@ package app;
 
 import modelo.Modelo;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class App {
@@ -16,6 +17,9 @@ public class App {
         for (Character c: letras) {
             m.letraRepetida(c,genoma);
         }
+
+        ArrayList<String> combinaciones = m.combinaciones(letras);
+        System.out.println(combinaciones.toString());
 
 
 
