@@ -5,8 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Stack;
 import java.util.stream.Stream;
 
 public class Modelo {
@@ -17,7 +17,7 @@ public class Modelo {
 
     public String leerDoc(){
 
-        Path path = Paths.get("/Users/miguelsalazar/git/genomaCovid/src/docs/sequences.fasta");
+        Path path = Paths.get("src/docs/sequences.fasta");
         StringBuilder sb = new StringBuilder();
 
         try{
@@ -67,6 +67,39 @@ public class Modelo {
 
             }
         }
+        return lista;
+    }
+
+    public HashMap<String,Combinacion> combinatorias(String genoma, int posiciones, int inicio)
+    {
+        String combinacionC="";
+        HashMap<String,Combinacion> lista = new HashMap<String,Combinacion>();
+        int i=0;
+        while(inicio<genoma.length())
+        {
+            try
+            {
+                for(int j=inicio;j<posiciones+inicio;j++)
+                {
+                    combinacionC+=String.valueOf(genoma.toCharArray()[j]);
+                }
+            }catch (Exception e)
+            {
+
+            }
+            if(!lista.containsKey(combinacionC))
+            {
+                lista.put(combinacionC,new Combinacion(combinacionC));
+            }
+            else
+            {
+                lista.get(combinacionC).setVeces(lista.get(combinacionC).getVeces()+1);
+                //lista.replace(combinacionC,c);
+            }
+            combinacionC="";
+            inicio+=posiciones;
+        }
+
         return lista;
     }
 
